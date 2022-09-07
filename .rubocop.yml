@@ -1,0 +1,27 @@
+# See https://docs.rubocop.org/rubocop/configuration
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'db/seeds.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
+RSpec/NestedGroups:
+  Max: 4
+
+Style/Documentation:
+  Enabled: false
