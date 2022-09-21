@@ -6,6 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, uniqueness: { case_sensitive: true },
+                       presence: true,
+                       allow_blank: false
+
   def generate_jwt
     JWT.encode({
                  id: id,

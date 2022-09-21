@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Sesssions', type: :request do
-  describe 'POT /create' do
-    subject(:request){ post user_session_path, params: params }
+  describe 'POST /create' do
+    subject(:request) { post user_session_path, params: params }
 
-    let!(:user){ create(:user, email: 'lucas@sample.com', password: 'password') }
-    
+    let!(:user) { create(:user, email: 'lucas@sample.com', password: 'password') }
+
     context 'when credentials are incorrect' do
       let(:params) do
         { user: { email: 'inexistent_email@sample.com', password: '12345678' } }
@@ -23,10 +23,12 @@ RSpec.describe 'Sesssions', type: :request do
         request
 
         expect(JSON.parse(response.body)).to match(
-          "errors" => {
-          "email or password" => [
-            "is invalid"
-          ]})
+          'errors' => {
+            'email or password' => [
+              'is invalid'
+            ]
+          }
+        )
       end
     end
 
@@ -34,7 +36,7 @@ RSpec.describe 'Sesssions', type: :request do
       let(:params) do
         { user: { email: 'lucas@sample.com', password: 'password' } }
       end
-      
+
       it 'returns created status' do
         request
 
