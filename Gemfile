@@ -16,6 +16,9 @@ gem 'rswag-ui', '~> 2.5'
 
 gem "bootsnap", require: false
 
+gem "devise", "~> 4.8"
+gem "jwt", "~> 2.5"
+
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
@@ -34,7 +37,3 @@ group :development, :test do
   gem 'simplecov', '~> 0.21.2'
   gem 'super_diff', '~> 0.9.0'
 end
-
-group :development do
-end
-
