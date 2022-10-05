@@ -10,6 +10,8 @@ class Article < ApplicationRecord
   validates :description, presence: true, allow_blank: false
   validates :slug, uniqueness: true
 
+  acts_as_taggable_on :tags
+
   private
 
   def set_slug

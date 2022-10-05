@@ -37,3 +37,5 @@ group :development, :test do
   gem 'simplecov', '~> 0.21.2'
   gem 'super_diff', '~> 0.9.0'
 end
+
+gem "acts-as-taggable-on", "~> 9.0"
