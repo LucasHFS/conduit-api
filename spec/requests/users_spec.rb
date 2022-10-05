@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     context 'when user is not authenticated' do
-      it 'returns forbidden status' do
+      it 'returns unauthorized status' do
         request
 
         expect(response).to have_http_status(:unauthorized)
@@ -32,6 +32,14 @@ RSpec.describe 'Users', type: :request do
           }
         end
 
+        let(:json_response) do
+          {
+            errors: {
+              email: ['is invalid']
+            }
+          }.to_json
+        end
+
         it 'returns unprocessable entity status' do
           request
 
@@ -41,13 +49,7 @@ RSpec.describe 'Users', type: :request do
         it 'return error messages' do
           request
 
-          expect(JSON.parse(response.body)).to match(
-            'errors' => {
-              'email' => [
-                'is invalid'
-              ]
-            }
-          )
+          expect(JSON.parse(response.body)).to match(json_response)
         end
       end
 
@@ -61,6 +63,19 @@ RSpec.describe 'Users', type: :request do
           }
         end
 
+        let(:json_response) do
+          {
+            user: {
+              id: user.id,
+              email: 'lucas@sample.com',
+              username: 'lucas.silva',
+              bio: 'new bio',
+              image: nil,
+              token: String
+            }
+          }.to_json
+        end
+
         it 'returns status :ok' do
           request
 
@@ -70,16 +85,7 @@ RSpec.describe 'Users', type: :request do
         it 'updates user attributes' do
           request
 
-          expect(JSON.parse(response.body)).to match(
-            'user' => {
-              'id' => user.id,
-              'email' => 'lucas@sample.com',
-              'username' => 'lucas.silva',
-              'bio' => 'new bio',
-              'image' => nil,
-              'token' => String
-            }
-          )
+          expect(JSON.parse(response.body)).to match(json_response)
         end
       end
     end
