@@ -10,6 +10,8 @@ class Article < ApplicationRecord
   validates :description, presence: true, allow_blank: false
   validates :slug, uniqueness: true
 
+  scope :from_author, ->(username) { where(user: { username: username }) }
+
   acts_as_taggable_on :tags
 
   private

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from ActionController::ParameterMissing, with: :parameter_missing
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
@@ -8,6 +11,16 @@ class ApplicationController < ActionController::Base
   respond_to :json
 
   before_action :authenticate_user
+
+  def record_not_found(exception)
+    response = { errors: { message: "#{exception.model} not found" } }
+    render json: response, status: :not_found
+  end
+
+  def parameter_missing(exception)
+    response = { errors: { exception.param.to_s => [exception.message.split(':')[0]] }.compact }
+    render json: response, status: :unprocessable_entity
+  end
 
   private
 
