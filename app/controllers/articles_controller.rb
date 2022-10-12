@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
         render json: { errors: @article.errors }, status: :unprocessable_entity
       end
     else
-      render json: { errors: { article: ['not owned by ufavoritedser'] } }, status: :forbidden
+      render json: { errors: { article: ['not owned by user'] } }, status: :forbidden
     end
   end
 
