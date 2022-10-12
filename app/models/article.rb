@@ -11,7 +11,8 @@ class Article < ApplicationRecord
   validates :description, presence: true, allow_blank: false
   validates :slug, uniqueness: true
 
-  scope :from_author, ->(username) { where(user: { username: username }) }
+  scope :authored_by, ->(username) { where(user: User.where(username: username)) }
+  scope :favorited_by, ->(username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
 
   acts_as_taggable_on :tags
 

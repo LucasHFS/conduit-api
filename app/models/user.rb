@@ -20,4 +20,18 @@ class User < ApplicationRecord
                },
                Rails.application.credentials.secret_key_base)
   end
+
+  def favorite(article)
+    favorites.find_or_create_by(article: article)
+  end
+
+  def unfavorite(article)
+    favorites.where(article: article).destroy_all
+
+    article.reload
+  end
+
+  def favorited?(article)
+    favorites.find_by(article: article).present?
+  end
 end

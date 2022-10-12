@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     resource :user, only: %i[show update]
 
-    resources :articles, param: :slug, except: %i[edit new]
+    resources :articles, param: :slug, except: %i[edit new] do
+      resource :favorite, only: %i[create destroy]
+    end
   end
 end
