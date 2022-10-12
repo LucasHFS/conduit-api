@@ -17,11 +17,17 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/*.rb'
 
+Metrics/AbcSize:
+  Max: 35
+
 Rails/FilePath:
   Exclude:
     - 'spec/rails_helper.rb'
 RSpec/NestedGroups:
   Max: 4
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
 
 Style/Documentation:
   Enabled: false
