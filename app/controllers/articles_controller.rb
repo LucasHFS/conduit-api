@@ -7,8 +7,9 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.includes(:user)
 
-    @articles = @articles.from_author(params[:author]) if params[:author].present?
+    @articles = @articles.authored_by(params[:author]) if params[:author].present?
     @articles = @articles.tagged_with(params[:tag]) if params[:tag].present?
+    @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
     @articles = @articles.limit(params[:limit] || 20).offset(params[:offset] || 0).order(created_at: :desc)
 
     @articles_count = @articles.size

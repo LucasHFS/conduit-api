@@ -34,38 +34,42 @@ RSpec.describe 'Articles', type: :request do
 
     let(:json_response) do
       {
-        articles: [
+        'articles' => [
           {
-            slug: 'how-to-build-good-software',
-            title: 'How to build good software',
-            description: 'Ever heard of Spec initiative?',
-            body: 'Write tests',
-            tagList: %w[coding tests],
-            createdAt: String,
-            updatedAt: String,
-            author: {
-              username: 'luke',
-              bio: 'I work at codeminer42',
-              image: 'https://i.stack.imgur.com/xHWG8.jpg'
+            'slug' => 'how-to-build-good-software',
+            'title' => 'How to build good software',
+            'description' => 'Ever heard of Spec initiative?',
+            'body' => 'Write tests',
+            'tagList' => %w[coding tests],
+            'favorited' => false,
+            'favoritesCount' => 0,
+            'createdAt' => String,
+            'updatedAt' => String,
+            'author' => {
+              'username' => 'luke',
+              'bio' => 'I work at codeminer42',
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
             }
           },
           {
-            slug: 'how-to-train-your-dragon',
-            title: 'How to train your dragon',
-            description: 'Ever wonder how?',
-            body: 'It takes a Jacobian',
-            tagList: %w[dragons training],
-            createdAt: String,
-            updatedAt: String,
-            author: {
-              username: 'jake',
-              bio: 'I work at statefarm',
-              image: 'https://i.stack.imgur.com/xHWG8.jpg'
+            'slug' => 'how-to-train-your-dragon',
+            'title' => 'How to train your dragon',
+            'description' => 'Ever wonder how?',
+            'body' => 'It takes a Jacobian',
+            'tagList' => %w[dragons training],
+            'favorited' => false,
+            'favoritesCount' => 0,
+            'createdAt' => String,
+            'updatedAt' => String,
+            'author' => {
+              'username' => 'jake',
+              'bio' => 'I work at statefarm',
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
             }
           }
         ],
-        articlesCount: 2
-      }.to_json
+        'articlesCount' => 2
+      }
     end
 
     before do
@@ -94,23 +98,25 @@ RSpec.describe 'Articles', type: :request do
 
       let(:json_response) do
         {
-          articles: [
+          'articles' => [
             {
-              slug: 'how-to-build-good-software',
-              title: 'How to build good software',
-              description: 'Ever heard of Spec initiative?',
-              body: 'Write tests',
-              tagList: %w[coding tests],
-              createdAt: String,
-              updatedAt: String,
-              author: {
-                username: 'luke',
-                bio: 'I work at codeminer42',
-                image: 'https://i.stack.imgur.com/xHWG8.jpg'
+              'slug' => 'how-to-build-good-software',
+              'title' => 'How to build good software',
+              'description' => 'Ever heard of Spec initiative?',
+              'body' => 'Write tests',
+              'tagList' => %w[coding tests],
+              'favorited' => false,
+              'favoritesCount' => 0,
+              'createdAt' => String,
+              'updatedAt' => String,
+              'author' => {
+                'username' => 'luke',
+                'bio' => 'I work at codeminer42',
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
               }
             }
           ],
-          articlesCount: 1
+          'articlesCount' => 1
         }
       end
 
@@ -130,23 +136,25 @@ RSpec.describe 'Articles', type: :request do
 
       let(:json_response) do
         {
-          articles: [
+          'articles' => [
             {
-              slug: 'how-to-train-your-dragon',
-              title: 'How to train your dragon',
-              description: 'Ever wonder how?',
-              body: 'It takes a Jacobian',
-              tagList: %w[dragons training],
-              createdAt: String,
-              updatedAt: String,
-              author: {
-                username: 'jake',
-                bio: 'I work at statefarm',
-                image: 'https://i.stack.imgur.com/xHWG8.jpg'
+              'slug' => 'how-to-train-your-dragon',
+              'title' => 'How to train your dragon',
+              'description' => 'Ever wonder how?',
+              'body' => 'It takes a Jacobian',
+              'tagList' => %w[dragons training],
+              'favorited' => false,
+              'favoritesCount' => 0,
+              'createdAt' => String,
+              'updatedAt' => String,
+              'author' => {
+                'username' => 'jake',
+                'bio' => 'I work at statefarm',
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
               }
             }
           ],
-          articlesCount: 1
+          'articlesCount' => 1
         }
       end
 
@@ -189,11 +197,11 @@ RSpec.describe 'Articles', type: :request do
 
         let(:json_response) do
           {
-            errors: {
-              body: [
+            'errors' => {
+              'body' => [
                 "can't be blank"
               ],
-              description: [
+              'description' => [
                 "can't be blank"
               ]
             }
@@ -227,18 +235,20 @@ RSpec.describe 'Articles', type: :request do
 
         let(:json_response) do
           {
-            article: {
-              slug: 'how-to-train-your-dragon',
-              title: 'How to train your dragon',
-              description: 'Ever wonder how?',
-              body: 'It takes a Jacobian',
-              tagList: %w[dragons training],
-              createdAt: String,
-              updatedAt: String,
-              author: {
-                username: 'jake',
-                bio: 'I work at statefarm',
-                image: 'https://i.stack.imgur.com/xHWG8.jpg'
+            'article' => {
+              'slug' => 'how-to-train-your-dragon',
+              'title' => 'How to train your dragon',
+              'description' => 'Ever wonder how?',
+              'body' => 'It takes a Jacobian',
+              'tagList' => %w[dragons training],
+              'favorited' => false,
+              'favoritesCount' => 0,
+              'createdAt' => String,
+              'updatedAt' => String,
+              'author' => {
+                'username' => 'jake',
+                'bio' => 'I work at statefarm',
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
               }
             }
           }
@@ -278,18 +288,20 @@ RSpec.describe 'Articles', type: :request do
 
       let(:json_response) do
         {
-          article: {
-            slug: 'how-to-train-your-dragon',
-            title: 'How to train your dragon',
-            description: 'Ever wonder how?',
-            body: 'It takes a Jacobian',
-            tagList: %w[dragons training],
-            createdAt: String,
-            updatedAt: String,
-            author: {
-              username: 'jake',
-              bio: 'I work at statefarm',
-              image: 'https://i.stack.imgur.com/xHWG8.jpg'
+          'article' => {
+            'slug' => 'how-to-train-your-dragon',
+            'title' => 'How to train your dragon',
+            'description' => 'Ever wonder how?',
+            'body' => 'It takes a Jacobian',
+            'tagList' => %w[dragons training],
+            'favorited' => false,
+            'favoritesCount' => 0,
+            'createdAt' => String,
+            'updatedAt' => String,
+            'author' => {
+              'username' => 'jake',
+              'bio' => 'I work at statefarm',
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
             }
           }
         }
@@ -312,8 +324,8 @@ RSpec.describe 'Articles', type: :request do
       let(:article_slug) { 'non-existing-slug' }
       let(:json_response) do
         {
-          errors: {
-            message: 'Article not found'
+          'errors' => {
+            'message' => 'Article not found'
           }
         }
       end
@@ -386,8 +398,8 @@ RSpec.describe 'Articles', type: :request do
 
         let(:json_response) do
           {
-            errors: {
-              title: [
+            'errors' => {
+              'title' => [
                 "can't be blank"
               ]
             }
@@ -419,18 +431,20 @@ RSpec.describe 'Articles', type: :request do
 
         let(:json_response) do
           {
-            article: {
-              slug: 'how-to-improve-your-dragon',
-              title: 'How to improve your dragon',
-              description: 'Ever wonder how?',
-              body: 'It takes a Jacobian',
-              tagList: %w[dragons training improve],
-              createdAt: String,
-              updatedAt: String,
-              author: {
-                username: 'jake',
-                bio: 'I work at statefarm',
-                image: 'https://i.stack.imgur.com/xHWG8.jpg'
+            'article' => {
+              'slug' => 'how-to-improve-your-dragon',
+              'title' => 'How to improve your dragon',
+              'description' => 'Ever wonder how?',
+              'body' => 'It takes a Jacobian',
+              'tagList' => %w[dragons training improve],
+              'favorited' => false,
+              'favoritesCount' => 0,
+              'createdAt' => String,
+              'updatedAt' => String,
+              'author' => {
+                'username' => 'jake',
+                'bio' => 'I work at statefarm',
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
               }
             }
           }
@@ -453,8 +467,8 @@ RSpec.describe 'Articles', type: :request do
         let(:article_slug) { 'non-existing-slug' }
         let(:json_response) do
           {
-            errors: {
-              message: 'Article not found'
+            'errors' => {
+              'message' => 'Article not found'
             }
           }
         end
@@ -513,8 +527,8 @@ RSpec.describe 'Articles', type: :request do
 
         let(:json_response) do
           {
-            errors: {
-              message: 'Article not found'
+            'errors' => {
+              'message' => 'Article not found'
             }
           }
         end
