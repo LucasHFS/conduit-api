@@ -11,6 +11,7 @@ class User < ApplicationRecord
                        allow_blank: false
 
   has_many :articles, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def generate_jwt
     JWT.encode({
