@@ -26,18 +26,18 @@ RSpec.describe 'Users', type: :request do
       context 'when invalid attributes' do
         let(:params) do
           {
-            user: {
-              email: 'invalidemail'
+            'user' => {
+              'email' => 'invalidemail'
             }
           }
         end
 
         let(:json_response) do
           {
-            errors: {
-              email: ['is invalid']
+            'errors' => {
+              'email' => ['is invalid']
             }
-          }.to_json
+          }
         end
 
         it 'returns unprocessable entity status' do
@@ -65,15 +65,15 @@ RSpec.describe 'Users', type: :request do
 
         let(:json_response) do
           {
-            user: {
-              id: user.id,
-              email: 'lucas@sample.com',
-              username: 'lucas.silva',
-              bio: 'new bio',
-              image: nil,
-              token: String
+            'user' => {
+              'id' => user.id,
+              'email' => 'lucas@sample.com',
+              'username' => 'lucas.silva',
+              'bio' => 'new bio',
+              'image' => nil,
+              'token' => String
             }
-          }.to_json
+          }
         end
 
         it 'returns status :ok' do
