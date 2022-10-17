@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  include Filterable
+
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
@@ -13,6 +15,10 @@ class Article < ApplicationRecord
 
   scope :authored_by, ->(username) { where(user: User.where(username: username)) }
   scope :favorited_by, ->(username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
+
+  scope :filter_by_author, ->(author) { authored_by(author) }
+  scope :filter_by_tag, ->(tag) { tagged_with(tag) }
+  scope :filter_by_favorited, ->(favorited) { favorited_by(favorited) }
 
   acts_as_taggable_on :tags
 

@@ -5,12 +5,11 @@ class ArticlesController < ApplicationController
   before_action :find_article!, only: %i[show update destroy]
 
   def index
-    @articles = Article.all.includes(:user)
-
-    @articles = @articles.authored_by(params[:author]) if params[:author].present?
-    @articles = @articles.tagged_with(params[:tag]) if params[:tag].present?
-    @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
-    @articles = @articles.limit(params[:limit] || 20).offset(params[:offset] || 0).order(created_at: :desc)
+    @articles = Article.filter(filtering_params)
+    @articles = @articles
+                .limit(params[:limit] || 20)
+                .offset(params[:offset] || 0)
+                .order(created_at: :desc)
 
     @articles_count = @articles.size
   end
@@ -54,6 +53,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :description, :body, tag_list: [])
+  end
+
+  def filtering_params
+    params.slice(:author, :tag, :favorited)
   end
 
   def find_article!
