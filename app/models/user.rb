@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  acts_as_followable
+  acts_as_follower
+
   def generate_jwt
     JWT.encode({
                  id: id,

@@ -39,3 +39,4 @@ group :development, :test do
 end
 
 gem 'acts-as-taggable-on', '~> 9.0'
+gem 'acts_as_follower', '~> 0.2.1'
