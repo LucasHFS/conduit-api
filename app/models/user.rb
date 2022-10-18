@@ -11,6 +11,7 @@ class User < ApplicationRecord
                        allow_blank: false
 
   has_many :articles, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def generate_jwt
     JWT.encode({
@@ -18,5 +19,19 @@ class User < ApplicationRecord
                  exp: 60.days.from_now.to_i
                },
                Rails.application.credentials.secret_key_base)
+  end
+
+  def favorite(article)
+    favorites.find_or_create_by(article: article)
+  end
+
+  def unfavorite(article)
+    favorites.where(article: article).destroy_all
+
+    article.reload
+  end
+
+  def favorited?(article)
+    favorites.find_by(article: article).present?
   end
 end

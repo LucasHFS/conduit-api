@@ -15,8 +15,8 @@ RSpec.describe 'Sesssions', type: :request do
 
       let(:json_response) do
         {
-          errors: {
-            'email or password': [
+          'errors' => {
+            'email or password' => [
               'is invalid'
             ]
           }
@@ -43,13 +43,13 @@ RSpec.describe 'Sesssions', type: :request do
 
       let(:json_response) do
         {
-          user: {
-            id: user.id,
-            email: 'lucas@sample.com',
-            username: nil,
-            bio: nil,
-            image: nil,
-            token: String
+          'user' => {
+            'id' => user.id,
+            'email' => 'lucas@sample.com',
+            'username' => user.username,
+            'bio' => nil,
+            'image' => nil,
+            'token' => String
           }
         }
       end
