@@ -37,7 +37,8 @@ RSpec.describe 'Favorites', type: :request do
           'author' => {
             'username' => 'jake',
             'bio' => 'I work at statefarm',
-            'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+            'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+            'following' => false
           }
         }
       }
@@ -76,7 +77,8 @@ RSpec.describe 'Favorites', type: :request do
           'author' => {
             'username' => 'jake',
             'bio' => 'I work at statefarm',
-            'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+            'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+            'following' => false
           }
         }
       }

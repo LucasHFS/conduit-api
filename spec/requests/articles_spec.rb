@@ -48,7 +48,8 @@ RSpec.describe 'Articles', type: :request do
             'author' => {
               'username' => 'luke',
               'bio' => 'I work at codeminer42',
-              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+              'following' => false
             }
           },
           {
@@ -64,7 +65,8 @@ RSpec.describe 'Articles', type: :request do
             'author' => {
               'username' => 'jake',
               'bio' => 'I work at statefarm',
-              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+              'following' => false
             }
           }
         ],
@@ -112,7 +114,8 @@ RSpec.describe 'Articles', type: :request do
               'author' => {
                 'username' => 'luke',
                 'bio' => 'I work at codeminer42',
-                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+                'following' => false
               }
             }
           ],
@@ -150,7 +153,8 @@ RSpec.describe 'Articles', type: :request do
               'author' => {
                 'username' => 'jake',
                 'bio' => 'I work at statefarm',
-                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+                'following' => false
               }
             }
           ],
@@ -248,7 +252,8 @@ RSpec.describe 'Articles', type: :request do
               'author' => {
                 'username' => 'jake',
                 'bio' => 'I work at statefarm',
-                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+                'following' => false
               }
             }
           }
@@ -301,7 +306,8 @@ RSpec.describe 'Articles', type: :request do
             'author' => {
               'username' => 'jake',
               'bio' => 'I work at statefarm',
-              'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+              'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+              'following' => false
             }
           }
         }
@@ -444,7 +450,8 @@ RSpec.describe 'Articles', type: :request do
               'author' => {
                 'username' => 'jake',
                 'bio' => 'I work at statefarm',
-                'image' => 'https://i.stack.imgur.com/xHWG8.jpg'
+                'image' => 'https://i.stack.imgur.com/xHWG8.jpg',
+                'following' => false
               }
             }
           }
