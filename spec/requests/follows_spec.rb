@@ -112,7 +112,7 @@ RSpec.describe 'Follows', type: :request do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'returns celeb user profile with followed containing true' do
+      it 'returns celeb user profile with followed containing false' do
         request
 
         expect(JSON.parse(response.body)).to match(json_response)

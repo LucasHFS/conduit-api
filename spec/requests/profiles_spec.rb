@@ -27,7 +27,7 @@ RSpec.describe 'Profiles', type: :request do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'returns article attributes' do
+      it 'returns profile attributes' do
         request
 
         expect(JSON.parse(response.body)).to match(json_response)
@@ -51,7 +51,7 @@ RSpec.describe 'Profiles', type: :request do
         expect(response).to have_http_status(:not_found)
       end
 
-      it 'returns profile attributes' do
+      it 'returns an error message' do
         request
 
         expect(JSON.parse(response.body)).to match(json_response)
