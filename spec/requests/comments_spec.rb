@@ -18,7 +18,7 @@ RSpec.describe "Comments", type: :request do
 
     let(:article_slug) { article.slug }
 
-    let(:comment1) do
+    let!(:comment1) do
       create(:comment,
              body: 'It takes a Jacobian',
              user: user,
@@ -26,7 +26,7 @@ RSpec.describe "Comments", type: :request do
              created_at: 2.days.ago)
     end
 
-    let(:comment2) do
+    let!(:comment2) do
       create(:comment,
              body: 'Write tests',
              article: article,
@@ -66,11 +66,6 @@ RSpec.describe "Comments", type: :request do
           }
         ]
       }
-    end
-
-    before do
-      comment1
-      comment2
     end
 
     it 'returns ok status' do
