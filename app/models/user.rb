@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :articles, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   acts_as_follower
   acts_as_followable

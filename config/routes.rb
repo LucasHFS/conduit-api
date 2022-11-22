@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
     resources :articles, param: :slug, except: %i[edit new] do
       resource :favorite, only: %i[create destroy]
+
+      resources :comments, only: %i[index create destroy]
     end
   end
 end
