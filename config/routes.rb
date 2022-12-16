@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
       resources :comments, only: %i[index create destroy]
     end
+
+    resources :tags, only: %i[index]
   end
 end

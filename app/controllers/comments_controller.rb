@@ -4,16 +4,16 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @article
-                  .comments
-                  .limit(params[:limit] || 20)
-                  .offset(params[:offset] || 0)
-                  .order(created_at: :desc)
+                .comments
+                .limit(params[:limit] || 20)
+                .offset(params[:offset] || 0)
+                .order(created_at: :desc)
   end
 
   def create
     @comment = @article.comments.new(comment_params.merge(
-      user: current_user,
-    ))
+                                       user: current_user
+                                     ))
 
     if @comment.save
       render :show, status: :created
