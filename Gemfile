@@ -42,3 +42,6 @@ gem 'acts-as-taggable-on', '~> 9.0'
 gem 'acts_as_follower', '~> 0.2.1'
 
 gem "rack-cors", "~> 1.1"
+
+gem "sentry-ruby", "~> 5.7"
+gem "sentry-rails", "~> 5.7"
