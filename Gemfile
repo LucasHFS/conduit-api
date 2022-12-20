@@ -26,6 +26,7 @@ group :development, :test do
   gem 'faker', '~> 2.21.0'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.1'
+  gem 'dotenv-rails', '~> 2.8.1'
 
   gem 'rdoc'
   gem 'rswag-specs', '~> 2.5'
