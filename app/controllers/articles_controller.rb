@@ -7,11 +7,24 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.filter(filtering_params)
     @articles = @articles
-                .limit(params[:limit] || 20)
-                .offset(params[:offset] || 0)
                 .order(created_at: :desc)
+                .offset(params[:offset] || 0)
+                .limit(params[:limit] || 20)
 
     @articles_count = @articles.size
+  end
+
+  def feed
+    @articles = Article.includes(:user).where(user: current_user.following_users)
+
+    @articles_count = @articles.size
+
+    @articles = @articles
+                .order(created_at: :desc)
+                .offset(params[:offset] || 0)
+                .limit(params[:limit] || 20)
+
+    render :index
   end
 
   def show; end
