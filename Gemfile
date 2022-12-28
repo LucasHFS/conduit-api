@@ -26,6 +26,7 @@ group :development, :test do
   gem 'faker', '~> 2.21.0'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.1'
+  gem 'dotenv-rails', '~> 2.8.1'
 
   gem 'rdoc'
   gem 'rswag-specs', '~> 2.5'
@@ -40,3 +41,8 @@ end
 
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'acts_as_follower', '~> 0.2.1'
+
+gem "rack-cors", "~> 1.1"
+
+gem "sentry-ruby", "~> 5.7"
+gem "sentry-rails", "~> 5.7"
