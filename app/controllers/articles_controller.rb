@@ -6,23 +6,24 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.filter(filtering_params)
+
+    setup_pagination_info
+
     @articles = @articles
                 .order(created_at: :desc)
-                .offset(params[:offset] || 0)
-                .limit(params[:limit] || 20)
-
-    @articles_count = @articles.size
+                .offset(offset || 0)
+                .limit(per_page || 10)
   end
 
   def feed
     @articles = Article.includes(:user).where(user: current_user.following_users)
 
-    @articles_count = @articles.size
+    setup_pagination_info
 
     @articles = @articles
                 .order(created_at: :desc)
-                .offset(params[:offset] || 0)
-                .limit(params[:limit] || 20)
+                .offset(offset || 0)
+                .limit(per_page || 10)
 
     render :index
   end
@@ -78,5 +79,31 @@ class ArticlesController < ApplicationController
 
   def user_is_article_author?
     @current_user_id == @article.user_id
+  end
+
+  def setup_pagination_info
+    total = @articles.size
+    total_pages = (total / per_page).floor
+
+    @pagination_info = {
+      page: page,
+      perPage: per_page,
+      total: total,
+      totalPages: total_pages
+    }
+
+    offset
+  end
+
+  def per_page
+    10
+  end
+
+  def offset
+    (page - 1) * per_page
+  end
+
+  def page
+    (params[:page] || 1).to_i
   end
 end
