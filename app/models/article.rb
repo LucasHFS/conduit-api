@@ -23,6 +23,11 @@ class Article < ApplicationRecord
 
   acts_as_taggable_on :tags
 
+  def tag_list
+    list = super
+    list.sort
+  end
+
   private
 
   def set_slug
