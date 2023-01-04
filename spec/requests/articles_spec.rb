@@ -70,7 +70,12 @@ RSpec.describe 'Articles', type: :request do
             }
           }
         ],
-        'articlesCount' => 2
+        'paginationInfo' => {
+          'page' => 1,
+          'perPage' => 10,
+          'total' => 2,
+          'totalPages' => 1
+        }
       }
     end
 
@@ -119,7 +124,12 @@ RSpec.describe 'Articles', type: :request do
               }
             }
           ],
-          'articlesCount' => 1
+          'paginationInfo' => {
+            'page' => 1,
+            'perPage' => 10,
+            'total' => 1,
+            'totalPages' => 1
+          }
         }
       end
 
@@ -158,7 +168,12 @@ RSpec.describe 'Articles', type: :request do
               }
             }
           ],
-          'articlesCount' => 1
+          'paginationInfo' => {
+            'page' => 1,
+            'perPage' => 10,
+            'total' => 1,
+            'totalPages' => 1
+          }
         }
       end
 
@@ -231,7 +246,12 @@ RSpec.describe 'Articles', type: :request do
             }
           }
         ],
-        'articlesCount' => 2
+        'paginationInfo' => {
+          'page' => 1,
+          'perPage' => 10,
+          'total' => 2,
+          'totalPages' => 1
+        }
       }
     end
     let(:token) { user.generate_jwt }
@@ -530,7 +550,7 @@ RSpec.describe 'Articles', type: :request do
               'title' => 'How to improve your dragon',
               'description' => 'Ever wonder how?',
               'body' => 'It takes a Jacobian',
-              'tagList' => %w[dragons training improve],
+              'tagList' => %w[dragons improve training],
               'favorited' => false,
               'favoritesCount' => 0,
               'createdAt' => String,

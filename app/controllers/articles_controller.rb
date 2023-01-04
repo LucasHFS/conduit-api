@@ -84,7 +84,7 @@ class ArticlesController < ApplicationController
   def setup_pagination_info
     total = @articles.size
     total_pages = (total / per_page).floor
-
+    total_pages = 1 if total_pages.zero?
     @pagination_info = {
       page: page,
       perPage: per_page,

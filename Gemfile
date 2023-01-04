@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -22,11 +24,11 @@ gem 'jwt', '~> 2.5'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
+  gem 'dotenv-rails', '~> 2.8.1'
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker', '~> 2.21.0'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.1'
-  gem 'dotenv-rails', '~> 2.8.1'
 
   gem 'rdoc'
   gem 'rswag-specs', '~> 2.5'
@@ -37,12 +39,16 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.1'
   gem 'simplecov', '~> 0.21.2'
   gem 'super_diff', '~> 0.9.0'
+
+  gem 'brakeman', '~> 5.4.0'
+  gem 'bundler-audit', '~> 0.9.1'
+  gem 'ruby_audit', '~> 2.1.0'
 end
 
-gem 'acts-as-taggable-on', '~> 9.0'
 gem 'acts_as_follower', '~> 0.2.1'
+gem 'acts-as-taggable-on', '~> 9.0'
 
-gem "rack-cors", "~> 1.1"
+gem 'rack-cors', '~> 1.1'
 
-gem "sentry-ruby", "~> 5.7"
-gem "sentry-rails", "~> 5.7"
+gem 'sentry-rails', '~> 5.7'
+gem 'sentry-ruby', '~> 5.7'
